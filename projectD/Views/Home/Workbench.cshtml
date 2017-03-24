@@ -1,0 +1,231 @@
+﻿@model List<string>
+@*<h2>Workbench</h2>*@
+
+<style type="text/css">
+
+</style>
+<div>
+    <form action="#">
+        <div class="mdl-grid">
+            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <h2 class="mdl-card__title-text">Данные получателя</h2>
+                    <h4 class="mdl-typography--body-1">Наименование организации</h4>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Наименование</label>
+                    </div>
+                    <h4 class="mdl-typography--body-1">Адрес</h4>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Регион</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Город</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Точный адрес</label>
+                    </div>
+                    <h4 class="mdl-typography--body-1">Наименование счета</h4>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                        <label class="mdl-textfield__label" for="sample4">№ счета</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Дата</label>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+                    <h2 class="mdl-card__title-text">Реквизиты получателя</h2>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                        <label class="mdl-textfield__label" for="sample4">ИНН</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                        <label class="mdl-textfield__label" for="sample4">КПП (для ООО)</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                        <label class="mdl-textfield__label" for="sample4">Счет</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                        <label class="mdl-textfield__label" for="sample4">Кор. счет</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                        <label class="mdl-textfield__label" for="sample4">БИК банка</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Название банка</label>
+                    </div>
+                </div>
+                <div class="mdl-card__menu">
+                    <button id="cardMenuSeller" class="mdl-button mdl-js-button mdl-button--primary  mdl-js-ripple-effect">
+                        <span>Выбрать из списка</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="cardMenuSeller">
+                        <li class="mdl-menu__item">default1</li>
+                        <li class="mdl-menu__item">default2</li>
+                    </ul>
+                </div>
+            </div>  
+            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Данные покупателя</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Покупатель</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                        <label class="mdl-textfield__label" for="sample4">ИНН</label>
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <h4 class="mdl-typography--body-1">Адрес</h4>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Регион</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Город</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample3">
+                        <label class="mdl-textfield__label" for="sample3">Точный адрес</label>
+                    </div>
+                </div>
+                <div class="mdl-card__menu">
+                    <button id="cardMenuBuyer" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect">
+                        <span>Выбрать из списка</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="cardMenuBuyer">
+                        <li class="mdl-menu__item">default1</li>
+                        <li class="mdl-menu__item">default2</li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+        <div class="mdl-grid">
+            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Товары по счету</h2>
+                </div>
+                <div class="mdl-card__menu">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--primary">
+                            <i class="material-icons">add</i>
+                        </button>
+                </div>
+                <div class="mdl-card__supporting-text mdl-grid">
+                    <div class="mdl-cell mdl-cell--11-col">
+                        <div class="mdl-grid" id="tableItems">
+                            <div class="mdl-cell mdl-cell--5-col">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text"  id="sample4">
+                                    <label class="mdl-textfield__label" for="sample4">Наименование</label>
+                                </div>
+                            </div>
+                            <div class="mdl-cell mdl-cell--1-col">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                                    <label class="mdl-textfield__label" for="sample4">Ед. изм.</label>
+                                    <span class="mdl-textfield__error">Input is not a number!</span>
+                                </div>
+                            </div>
+                            <div class="mdl-cell mdl-cell--1-col">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                                    <label class="mdl-textfield__label" for="sample4">Кол-во</label>
+                                    <span class="mdl-textfield__error">Input is not a number!</span>
+                                </div>
+                            </div>
+                            <div class="mdl-cell mdl-cell--1-col">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                                    <label class="mdl-textfield__label" for="sample4">Цена</label>
+                                    <span class="mdl-textfield__error">Input is not a number!</span>
+                                </div>
+                            </div>
+                            <div class="mdl-cell mdl-cell--2-col">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+                                    <label class="mdl-textfield__label" for="sample4">Сумма</label>
+                                    <span class="mdl-textfield__error">Input is not a number!</span>
+                                </div>
+                            </div>
+                            <div class="mdl-cell mdl-cell--1-col">
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--accent" style="margin-top:10px">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-card--border mdl-card__actions mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <span>Итого:</span>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4" value="1234">
+                            <label class="mdl-textfield__label" for="sample4"></label>
+                            <span class="mdl-textfield__error">Input is not a number!</span>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <span>Прописью:</span>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="sample3" value="одна тысяча тридцать четыре">
+                            <label class="mdl-textfield__label" for="sample3"></label>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--2-col">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" id="demo-show-snackbar" style="margin-top:10px;">
+                            Сформировать
+                        </button>
+                    </div>
+                    <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+                        <div class="mdl-snackbar__text"></div>
+                        <button class="mdl-snackbar__action" type="button"></button>
+                    </div>
+                    <script>
+                        (function() {
+                          'use strict';
+                          var snackbarContainer = document.querySelector('#demo-snackbar-example');
+                          var showSnackbarButton = document.querySelector('#demo-show-snackbar');
+                          var handler = function(event) {
+                            showSnackbarButton.style.backgroundColor = '';
+                          };
+                          showSnackbarButton.addEventListener('click', function (e) {
+                              e.preventDefault();
+                            'use strict';
+                            var data = {
+                              message: 'ПИСОС',
+                              timeout: 2000,
+                              actionHandler: handler,
+                              actionText: 'ПИСОС'
+                            };
+                            snackbarContainer.MaterialSnackbar.showSnackbar(data);
+                          });
+                        }());
+                    </script>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

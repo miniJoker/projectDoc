@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/mdlCss")
+    @Scripts.Render("~/bundles/modernizr")*@
+    @Styles.Render("~/Content/mdl/material.min.css")
+    <style>
+               html, body {
+                   font-family: 'Roboto', 'Helvetica', sans-serif;
+               }
+
+               .demo-layout .mdl-layout__header .mdl-layout__drawer-button {
+                   color: rgba(0, 0, 0, 0.54);
+               }
+
+               .demo-drawer {
+                   border: none;
+               }
+                   /* iOS Safari specific workaround */
+                   .demo-drawer .mdl-menu__container {
+                       z-index: -1;
+                   }
+
+                   .demo-drawer .demo-navigation {
+                       z-index: -2;
+                   }
+                   /* END iOS Safari specific workaround */
+                   .demo-drawer .mdl-menu .mdl-menu__item {
+                       display: -webkit-flex;
+                       display: -ms-flexbox;
+                       display: flex;
+                       -webkit-align-items: center;
+                       -ms-flex-align: center;
+                       align-items: center;
+                   }
+
+               .demo-drawer-header {
+                   box-sizing: border-box;
+                   display: -webkit-flex;
+                   display: -ms-flexbox;
+                   display: flex;
+                   -webkit-flex-direction: column;
+                   -ms-flex-direction: column;
+                   flex-direction: column;
+                   -webkit-justify-content: flex-end;
+                   -ms-flex-pack: end;
+                   justify-content: flex-end;
+                   padding: 16px;
+                   height: 101px;
+               }
+
+               .demo-avatar-dropdown {
+                   display: -webkit-flex;
+                   display: -ms-flexbox;
+                   display: flex;
+                   position: relative;
+                   -webkit-flex-direction: row;
+                   -ms-flex-direction: row;
+                   flex-direction: row;
+                   -webkit-align-items: center;
+                   -ms-flex-align: center;
+                   align-items: center;
+                   width: 100%;
+               }
+
+               .demo-navigation {
+                   -webkit-flex-grow: 1;
+                   -ms-flex-positive: 1;
+                   flex-grow: 1;
+               }
+
+               .demo-layout .demo-navigation .mdl-navigation__link {
+                   display: -webkit-flex !important;
+                   display: -ms-flexbox !important;
+                   display: flex !important;
+                   -webkit-flex-direction: row;
+                   -ms-flex-direction: row;
+                   flex-direction: row;
+                   -webkit-align-items: center;
+                   -ms-flex-align: center;
+                   align-items: center;
+                   color: rgba(255, 255, 255, 0.56);
+                   font-weight: 500;
+               }
+
+                   .demo-layout .demo-navigation .mdl-navigation__link:hover {
+                       background-color: #303f9f;
+                       color: white;
+                   }
+
+               .demo-navigation .mdl-navigation__link .material-icons {
+                   font-size: 24px;
+                   color: rgba(255, 255, 255, 0.56);
+                   margin-right: 32px;
+               }
+    </style>
+</head>
+@{
+    string qwe = ViewBag.Title == "Главная"? "" : "mdl-layout--fixed-drawer";
+}
+<body class ="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="demo-layout mdl-layout mdl-js-layout @qwe">
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">@ViewBag.Title</span>
+                <div class="mdl-layout-spacer"></div>
+                @*<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" id="search">
+                        <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                    </div>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                    <li class="mdl-menu__item">About</li>
+                    <li class="mdl-menu__item">Contact</li>
+                    <li class="mdl-menu__item">Legal information</li>
+                </ul>*@
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--primary-dark mdl-color-text--primary-contrast">
+            <header class="demo-drawer-header">
+                @*<img src="images/user.jpg" class="demo-avatar">*@
+                <div class="demo-avatar-dropdown">
+                    <span>hello@example.com</span>
+                    @*<div class="mdl-layout-spacer"></div>*@
+                    @*<button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                            <i class="material-icons" role="presentation">arrow_drop_down</i>
+                            <span class="visuallyhidden">Accounts</span>
+                        </button>*@
+                    @*<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                            <li class="mdl-menu__item">hello@example.com</li>
+                            <li class="mdl-menu__item">info@example.com</li>
+                            <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+                        </ul>*@
+                </div>
+            </header>
+            <nav class="demo-navigation mdl-navigation mdl-color--primary">
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--primary-contrast material-icons" role="presentation">note_add</i>Новый</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--primary-contrast material-icons" role="presentation">assignment</i>Список</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--primary-contrast material-icons" role="presentation">delete</i>Удаленные</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--primary-contrast material-icons" role="presentation">account_box</i>Кабинет</a>
+                @*<div class="mdl-layout-spacer"></div>
+                    <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>*@
+            </nav>
+        </div>
+        <main class="mdl-layout__content mdl-color--grey-100">
+            @RenderBody()
+            @*<footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    <div class="mdl-logo">Title</div>
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+            </footer>*@
+        </main>
+    </div>
+
+    
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Workbench", "Workbench", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div>
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>*@
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/mdlScript")*@
+    @Scripts.Render("~/Content/mdl/material.min.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
