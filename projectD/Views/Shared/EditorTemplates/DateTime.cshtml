@@ -1,0 +1,40 @@
+﻿@model DateTime
+@{
+    string name = Html.NameForModel().ToString();
+    string datePickerName = name + "_DatePicker";
+    string title = ViewData["fieldTitle"] == null ? "" : ViewData["fieldTitle"].ToString();
+    
+    
+    //var attrs = Html.GetUnobtrusiveValidationAttributes(name, ViewData.ModelMetadata);
+    //if (ViewData["htmlAttributes"] != null)
+    //{
+    //    var htmlAttrs = ViewData["htmlAttributes"] as IDictionary<string, object>;
+    //    if (htmlAttrs != null)
+    //    {
+    //        foreach (var pair in htmlAttrs)
+    //        {
+    //            attrs[pair.Key] = pair.Value;
+    //        }
+    //    }
+    //}
+}
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{4}" name="@name" value="@Model.ToShortDateString()">
+    <label class="mdl-textfield__label">@title</label>
+    <span class="mdl-textfield__error">Введите дату (ДД.ММ.ГГГГ)</span>
+</div>
+
+@*<div class="input-group date" data-datetimepicker-for="@name">
+    @if (!string.IsNullOrEmpty(range))
+    {
+        <span class="input-group-addon">
+            @range
+        </span>
+    }
+    @Html.DatePickerInputFor(datePickerName, attrs)
+    <span class="input-group-addon">
+        <i class="glyphicon glyphicon-calendar"></i>
+    </span>
+</div>
+<span class="field-validation-valid" data-valmsg-for="@datePickerName" data-valmsg-replace="true"></span>
+@Html.HiddenFor(x => x, new ViewDataObject().HtmlAttr("id", null).Dependency(datePickerName).htmlAttributes)*@

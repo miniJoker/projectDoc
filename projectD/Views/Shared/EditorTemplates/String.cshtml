@@ -1,0 +1,10 @@
+﻿@model String
+@{
+    string name = Html.NameForModel().ToString();
+    string title = ViewData["fieldTitle"] == null ? "" : ViewData["fieldTitle"].ToString();
+    //string title = ViewData["title"].ToString()?? "";
+}
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" name="@name" value="@Model">
+    <label class="mdl-textfield__label">@title</label>
+</div>

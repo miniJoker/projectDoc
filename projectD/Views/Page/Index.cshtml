@@ -1,0 +1,10 @@
+﻿@{
+    string url = Url.Action("New", "Page");
+}
+<div>
+    @*<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" id="mainBtn"
+                style="position:absolute; top:50%;left:45%">
+            Сделать счет
+        </button>*@
+    @Html.ActionLink("Сделать счет", "New", "", new { @class = "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect", style = "position:absolute; top:50%;left:45%" })
+</div>
