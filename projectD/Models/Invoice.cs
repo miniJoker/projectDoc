@@ -15,6 +15,7 @@ namespace projectD.Models
         public int Id { get; set; }
         public int OrganizationId { get; set; }
         public Organization Organization { get; set; }
+        public Buyer Buyer { get; set; }
         [UIHint("Number")]
         public int? Number { get; set; }
         public DateTime Date { get; set; }

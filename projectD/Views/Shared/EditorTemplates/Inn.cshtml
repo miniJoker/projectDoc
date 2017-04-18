@@ -1,0 +1,10 @@
+﻿@model int?
+@{
+    string name = Html.NameForModel().ToString();
+    string title = ViewData["fieldTitle"] == null ? "" : ViewData["fieldTitle"].ToString();
+}
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" pattern="[0-9]{10,12}" name="@name" value="@Model">
+    <label class="mdl-textfield__label" for="sample4">@title</label>
+    <span class="mdl-textfield__error">Введите число</span>
+</div>

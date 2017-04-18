@@ -168,6 +168,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\Organization.cs" />
@@ -243,6 +244,9 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Inn.cshtml" />
+    <Content Include="Views\Card\Items.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Double.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
