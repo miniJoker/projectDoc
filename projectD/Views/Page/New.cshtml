@@ -9,6 +9,34 @@
         $("#buyerCard").load("/Card/Buyer?Id=0")
     })
 </script>*@
+<style>
+    .mdl-card.card-item {
+        width:100%;
+        min-height:50px;
+        margin-bottom:8px;
+    }
+        .mdl-card.card-item > div {
+            padding: 8px 16px;
+            border-top: 1px solid rgba(0,0,0,.1);
+        }
+        .mdl-card.card-item > div:first-child{
+            border-top:none;
+        }
+
+    .flex-container {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        justify-content: space-around;
+    }
+        .flex-container>div{
+            flex-grow:1;
+            margin:auto;
+        }
+</style>
 <div>
     <form action="#">
         <div class="mdl-grid">
@@ -22,78 +50,100 @@
             </div>
             @*Добавление товара*@
             <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">Товары по счету</h2>
-                </div>
-                <div class="mdl-card__menu">
-                    <button onclick="return false" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary mdl-button--icon">
-                        <i class="material-icons">add</i>
-                    </button>
-                </div>
-                <div class="mdl-card__supporting-text">
-                    <div>
-                        @Html.Editor("Name", "String", new { fieldTitle = "Наименование" })
-                        @Html.Editor("Type", "String", new { fieldTitle = "Ед. измерения" })
-                        @Html.Editor("Count", "Double", new { fieldTitle = "Количество" })
-                        @Html.Editor("Price", "Double", new { fieldTitle = "Цена" })
-                    </div>
-                    <button onclick="return false" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" style="margin-top:10px;">
-                        Внести в список
-                    </button>
-                </div>
+                @Html.Partial("~/Views/Card/Items.cshtml")
             </div>
             @*Список товаров*@
-            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet mdl-cell--bottom">
-                <div class="mdl-card__menu">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" id="demo-show-snackbar">
-                        Сформировать
-                    </button>
+            <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet" style="padding:0px">
+                <div class="mdl-card card-item mdl-color--primary mdl-color-text--primary-contrast">
+                    <div class="flex-container">
+                        <div>
+                            <label>Товар по счету номер раз</label>
+                        </div>
+                        <button onclick="return false" class="mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect mdl-button--icon">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </div>
+                    <div class="flex-container">
+                        <div>
+                            <label>Количество: 5 шт.</label>
+                        </div>
+                        <div>
+                            <label>Сумма: 1100</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="mdl-card--border mdl-card__actions mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <span class="mdl-color-text--primary">Итого:</span>
-                        <div class="mdl-textfield mdl-js-textfield" style="width:100px;display:inline-block">
-                            <input class="mdl-textfield__input" style="width:100px; text-align:right" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4" value="1234">
-                            <label class="mdl-textfield__label" style="width:100px;" for="sample4"></label>
+                <div class="mdl-card card-item mdl-color--primary mdl-color-text--primary-contrast">
+                    <div class="flex-container">
+                        <div>
+                            <label>Товар по счету номер два</label>
+                        </div>
+                        <button onclick="return false" class="mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect mdl-button--icon">
+                            <i class="material-icons">clear</i>
+                        </button>
+                    </div>
+                    <div class="flex-container">
+                        <div>
+                            <label>Количество: 10 шт.</label>
+                        </div>
+                        <div>
+                            <label>Сумма: 100</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-card mdl-shadow--2dp" style="width:100%;min-height:50px;padding:8px 16px;">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <span class="mdl-color-text--primary">Итого:</span>
+                        </div>
+                        <div class="mdl-cell mdl-cell--9-col">
+                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="result" value="1234">
+                            <label class="mdl-textfield__label" for="result"></label>
                             <span class="mdl-textfield__error">Input is not a number!</span>
                         </div>
                     </div>
-                    <div class="mdl-cel"></div>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <span class="mdl-color-text--primary">Прописью:</span>
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <span class="mdl-color-text--primary">Прописью:</span>
+                        </div>
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" style="text-align:right" type="text" id="sample3" value="одна тысяча тридцать четыре">
-                            <label class="mdl-textfield__label" for="sample3"></label>
+                            <input class="mdl-textfield__input" type="text" id="result_char" value="одна тысяча тридцать четыре">
+                            <label class="mdl-textfield__label" for="result_char"></label>
                         </div>
                     </div>
-                    <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-                        <div class="mdl-snackbar__text"></div>
-                        <button class="mdl-snackbar__action" type="button"></button>
+                    <div class="mdl-grid">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" id="demo-show-snackbar">
+                            Сформировать
+                        </button>
                     </div>
-                    <script>
-                        (function () {
-                            'use strict';
-                            var snackbarContainer = document.querySelector('#demo-snackbar-example');
-                            var showSnackbarButton = document.querySelector('#demo-show-snackbar');
-                            var handler = function (event) {
-                                showSnackbarButton.style.backgroundColor = '';
-                            };
-                            showSnackbarButton.addEventListener('click', function (e) {
-                                e.preventDefault();
-                                'use strict';
-                                var data = {
-                                    message: 'ПИСОС',
-                                    timeout: 2000,
-                                    actionHandler: handler,
-                                    actionText: 'ПИСОС'
-                                };
-                                snackbarContainer.MaterialSnackbar.showSnackbar(data);
-                            });
-                        }());
-                    </script>
                 </div>
             </div>
         </div>
+        <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        <script>
+            (function () {
+                'use strict';
+                var snackbarContainer = document.querySelector('#demo-snackbar-example');
+                var showSnackbarButton = document.querySelector('#demo-show-snackbar');
+                var handler = function (event) {
+                    showSnackbarButton.style.backgroundColor = '';
+                };
+                showSnackbarButton.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    'use strict';
+                    var data = {
+                        message: 'ПИСОС',
+                        timeout: 2000,
+                        actionHandler: handler,
+                        actionText: 'ПИСОС'
+                    };
+                    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+                });
+            }());
+        </script>
+
     </form>
 </div>
 

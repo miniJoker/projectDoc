@@ -1,15 +1,5 @@
 ﻿@model projectD.Models.Invoice
 @*Блок "Товары по счету"*@
-<style type="text/css">
-    .proj-table {
-        min-width: 650px;
-        overflow-y: scroll;
-    }
-
-        .proj-table td {
-            padding: 0px 5px;
-        }
-</style>
 <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Товары по счету</h2>
 </div>
@@ -18,92 +8,17 @@
         <i class="material-icons">add</i>
     </button>
 </div>
-<div class="mdl-card__supporting-text mdl-grid">
-    <div class="mdl-cell mdl-cell--3-col-desktop">
+<div class="mdl-card__supporting-text">
+    <div>
         @Html.Editor("Name", "String", new { fieldTitle = "Наименование" })
         @Html.Editor("Type", "String", new { fieldTitle = "Ед. измерения" })
         @Html.Editor("Count", "Double", new { fieldTitle = "Количество" })
         @Html.Editor("Price", "Double", new { fieldTitle = "Цена" })
     </div>
-    <div class="mdl-cell mdl-cell--1-col-desktop mdl-cell--1-col-tablet"></div>
-    <div class="mdl-cell mdl-cell--8-col-desktop">
-        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
-            <thead>
-                <tr>
-                    <th width="80%" class="mdl-data-table__cell--non-numeric">Material</th>
-                    <th class="mdl-data-table__cell--non-numeric">Type</th>
-                    <th>Quantity</th>
-                    <th>Unit price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-                    <td class="mdl-data-table__cell--non-numeric">qwe</td>
-                    <td>25</td>
-                    <td>$2.90</td>
-                </tr>
-                <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
-                    <td class="mdl-data-table__cell--non-numeric">qweqwe</td>
-                    <td>50</td>
-                    <td>$1.25</td>
-                </tr>
-                <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
-                    <td class="mdl-data-table__cell--non-numeric">qw</td>
-                    <td>10</td>
-                    <td>$2.35</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 </div>
-<div class="mdl-card--border mdl-card__actions mdl-grid">
-    <div class="mdl-cell mdl-cell--4-col">
-        <span>Итого:</span>
-        <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4" value="1234">
-            <label class="mdl-textfield__label" for="sample4"></label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--4-col">
-        <span>Прописью:</span>
-        <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" id="sample3" value="одна тысяча тридцать четыре">
-            <label class="mdl-textfield__label" for="sample3"></label>
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--2-col">
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" id="demo-show-snackbar" style="margin-top:10px;">
-            Сформировать
-        </button>
-    </div>
-    <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-        <div class="mdl-snackbar__text"></div>
-        <button class="mdl-snackbar__action" type="button"></button>
-    </div>
-    <script>
-        (function () {
-            'use strict';
-            var snackbarContainer = document.querySelector('#demo-snackbar-example');
-            var showSnackbarButton = document.querySelector('#demo-show-snackbar');
-            var handler = function (event) {
-                showSnackbarButton.style.backgroundColor = '';
-            };
-            showSnackbarButton.addEventListener('click', function (e) {
-                e.preventDefault();
-                'use strict';
-                var data = {
-                    message: 'ПИСОС',
-                    timeout: 2000,
-                    actionHandler: handler,
-                    actionText: 'ПИСОС'
-                };
-                snackbarContainer.MaterialSnackbar.showSnackbar(data);
-            });
-        }());
-    </script>
+<div class="mdl-card__actions">
+    <button onclick="return false" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+        Внести в список
+    </button>
 </div>
 
