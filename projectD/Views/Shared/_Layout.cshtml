@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    @Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>*@
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @*@Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/mdlCss")
-    @Scripts.Render("~/bundles/modernizr")*@
     @Styles.Render("~/Content/mdl/material.min.css")
     <style>
                html, body {
@@ -158,6 +156,10 @@
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
             @RenderBody()
+            <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+                <div class="mdl-snackbar__text"></div>
+                <button class="mdl-snackbar__action" type="button"></button>
+            </div>
             @*<footer class="mdl-mini-footer">
                 <div class="mdl-mini-footer__left-section">
                     <div class="mdl-logo">Title</div>
@@ -199,11 +201,8 @@
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             </footer>
         </div>*@
-
-    @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/mdlScript")*@
     @Scripts.Render("~/Content/mdl/material.min.js")
+    @Scripts.Render("~/Scripts/pages/all.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

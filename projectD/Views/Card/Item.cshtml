@@ -1,0 +1,22 @@
+﻿@model projectD.Models.Item
+<div class="mdl-card card-item mdl-color--primary mdl-color-text--primary-contrast">
+    <div class="flex-container">
+        <div>
+            <label>@Model.Name</label>
+        </div>
+        <button onclick="return false" class="mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons">clear</i>
+        </button>
+    </div>
+    <div class="flex-container">
+        <div>
+            <label>Количество: @Model.Count @Model.Type</label>
+        </div>
+        <div>
+            @{
+                double qwe = Model.Sum();
+            }
+            <label>Сумма: </label><label class="itemSum">@qwe</label>
+        </div>
+    </div>
+</div>
