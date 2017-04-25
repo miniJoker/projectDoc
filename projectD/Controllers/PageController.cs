@@ -19,8 +19,71 @@ namespace projectD.Controllers
         public ActionResult New()
         {
             ViewBag.Title = "Новый документ";
+
+            List<Organization> orgList = GenerateOrgs();
+
             Invoice invoice = new Invoice();
             return View(invoice);
+        }
+
+        public ActionResult List()
+        {
+            ViewBag.Title = "Список документов";
+            return View();
+        }
+
+        public ActionResult Archive()
+        {
+            ViewBag.Title = "Архив";
+            return View();
+        }
+
+        public ActionResult Account()
+        {
+            ViewBag.Title = "Личный кабинет";
+            return View();
+        }
+
+        private List<Organization> GenerateOrgs(){
+            Organization org1 = new Organization()
+            {
+                Name = "Booster",
+                Address = new Address()
+                {
+                    Area = "DefaultArea",
+                    City = "DefaultCity",
+                    Detail = "DefaultDetail"
+                },
+                PaymentDetails = new PaymentDetails()
+                {
+                    Account = "123",
+                    BankName = "DefaultBank",
+                    BIK = "123",
+                    INN = "123",
+                    KorAccount = "123",
+                    KPP = "123"
+                }
+            };
+            Organization org2 = new Organization()
+            {
+                Name = "Debooster",
+                Address = new Address()
+                {
+                    Area = "UnDefaultArea",
+                    City = "UnDefaultCity",
+                    Detail = "UnDefaultDetail"
+                },
+                PaymentDetails = new PaymentDetails()
+                {
+                    Account = "123123",
+                    BankName = "UnDefaultBank",
+                    BIK = "123123",
+                    INN = "123123",
+                    KorAccount = "123123",
+                    KPP = "123123"
+                }
+            };
+            return new List<Organization>() { org1, org2 };
         }
 	}
 }

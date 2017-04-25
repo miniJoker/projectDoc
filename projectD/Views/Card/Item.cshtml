@@ -4,7 +4,7 @@
         <div>
             <label>@Model.Name</label>
         </div>
-        <button onclick="return false" class="mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect mdl-button--icon">
+        <button class="mdl-button mdl-js-button mdl-button--accent mdl-js-ripple-effect mdl-button--icon">
             <i class="material-icons">clear</i>
         </button>
     </div>
@@ -14,7 +14,7 @@
         </div>
         <div>
             @{
-                double qwe = Model.Sum();
+                string qwe = Model.Sum().ToString().Replace(',','.');
             }
             <label>Сумма: </label><label class="itemSum">@qwe</label>
         </div>

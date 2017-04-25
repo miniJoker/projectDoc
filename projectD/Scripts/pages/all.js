@@ -24,10 +24,10 @@ function showMessage(text, status) {
         showSnackbarButton.style.backgroundColor = '';
     };
     var data = {
-        message: 'Отправлено',
+        message: text,
         timeout: 2000,
         actionHandler: handler,
-        actionText: 'INFO'
+        actionText: status
     };
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
 }

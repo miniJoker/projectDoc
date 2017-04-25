@@ -16,6 +16,7 @@ $("#newDocForm #itemCard #addItemBtn").click(function (e) {
         },
         success: function (response) {
             $("#newDocForm #itemList").append(response);
+            $("#newDocForm #itemList button").click(deleteItem);
             resetResult();
         }
     });
@@ -36,7 +37,15 @@ function resetResult() {
     var array = $("#newDocForm #itemList .itemSum");
     var sum = 0;
     array.each(function () {
-        sum = sum + parseFloat($(this).text());
+        var n=$(this).text();
+        sum = sum + parseFloat(n);
     })
-    console.log(sum);
+    $("#newDocForm #resultCard #resultDigit").text(sum);
+    $("#newDocForm #resultCard #resultLit").text(sum);
+}
+
+var deleteItem = function (event) {
+    event.preventDefault();
+    $(this).parent().parent().remove();
+    resetResult();
 }

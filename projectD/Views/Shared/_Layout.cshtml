@@ -1,13 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>@ViewBag.Title</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     @Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
-    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>*@
-    <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/mdl/material.min.css")
     <style>
                html, body {
@@ -146,12 +145,21 @@
                 </div>
             </header>
             <nav class="demo-navigation mdl-navigation mdl-color--primary">
-                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--primary-contrast material-icons" role="presentation">note_add</i>Новый</a>
-                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--primary-contrast material-icons" role="presentation">assignment</i>Список</a>
-                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--primary-contrast material-icons" role="presentation">delete</i>Удаленные</a>
-                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--primary-contrast material-icons" role="presentation">account_box</i>Кабинет</a>
-                @*<div class="mdl-layout-spacer"></div>
-                    <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>*@
+                <a class="mdl-navigation__link" href="@Url.Action("New","Page")"><i class="mdl-color-text--primary-contrast material-icons" role="presentation">note_add</i>Новый</a>
+                <a class="mdl-navigation__link" href="@Url.Action("List", "Page")"><i class="mdl-color-text--primary-contrast material-icons" role="presentation">assignment</i>Список</a>
+                <a class="mdl-navigation__link" href="@Url.Action("Archive", "Page")"><i class="mdl-color-text--primary-contrast material-icons" role="presentation">delete</i>Архив</a>
+                <a class="mdl-navigation__link" href="@Url.Action("Account", "Page")"><i class="mdl-color-text--primary-contrast material-icons" role="presentation">account_box</i>Кабинет</a>
+                <div class="mdl-layout-spacer"></div>
+                    <footer class="mdl-mini-footer mdl-color--primary-dark mdl-color-text--primary-contrast">
+                        <div class="mdl-mini-footer__left-section">
+                            <div class="mdl-logo mdl-color--accent" style="border-radius:50%;">Лого?</div>
+                            <ul class="mdl-mini-footer__link-list">
+                                <li>&copy; @DateTime.Now.Year - Название</li>
+                                
+                            </ul>
+                        </div>
+                    </footer>
+                    @*<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>*@
             </nav>
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
@@ -160,47 +168,9 @@
                 <div class="mdl-snackbar__text"></div>
                 <button class="mdl-snackbar__action" type="button"></button>
             </div>
-            @*<footer class="mdl-mini-footer">
-                <div class="mdl-mini-footer__left-section">
-                    <div class="mdl-logo">Title</div>
-                    <ul class="mdl-mini-footer__link-list">
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Privacy & Terms</a></li>
-                    </ul>
-                </div>
-            </footer>*@
         </main>
     </div>
 
-    
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Workbench", "Workbench", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>
-        <div>
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
-        </div>*@
     @Scripts.Render("~/Content/mdl/material.min.js")
     @Scripts.Render("~/Scripts/pages/all.js")
     @RenderSection("scripts", required: false)
