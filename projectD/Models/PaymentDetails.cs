@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +9,7 @@ namespace projectD.Models
     public class PaymentDetails
     {
         public int Id { get; set; }
+        [UIHint("Inn")]
         public string INN { get; set; }
         public string KPP { get; set; }
         public string Account { get; set; }

@@ -1,4 +1,5 @@
-﻿@model projectD.Models.Invoice
+﻿@using projectD.Models
+@model Invoice
 @*Блок "Данные продавца"*@
 <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
     <div class="mdl-card__title" style="padding:0px;">
@@ -27,7 +28,13 @@
         <h2 class="mdl-card__title-text">Реквизиты продавца</h2>
     </div>
     <div class="mdl-card__supporting-text" style="padding:0px;">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        @Html.EditorFor(x => x.Organization.PaymentDetails.INN, new { fieldTitle = "ИНН" })
+        @Html.EditorFor(x => x.Organization.PaymentDetails.KPP, new { fieldTitle = "КПП (для ООО)" })
+        @Html.EditorFor(x => x.Organization.PaymentDetails.Account, new { fieldTitle = "Счет" })
+        @Html.EditorFor(x => x.Organization.PaymentDetails.KorAccount, new { fieldTitle = "Кор. счет" })
+        @Html.EditorFor(x => x.Organization.PaymentDetails.BIK, new { fieldTitle = "БИК банка" })
+        @Html.EditorFor(x => x.Organization.PaymentDetails.BankName, new { fieldTitle = "Название банка" })
+        @*<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
             <label class="mdl-textfield__label" for="sample4">ИНН</label>
             <span class="mdl-textfield__error">Input is not a number!</span>
@@ -55,7 +62,7 @@
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" type="text" id="sample3">
             <label class="mdl-textfield__label" for="sample3">Название банка</label>
-        </div>
+        </div>*@
     </div>
 </div>
 @*Кнопка с выпадающим меню*@
@@ -65,7 +72,15 @@
         <i class="material-icons">create</i>
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="cardMenuSeller">
-        <li class="mdl-menu__item">default1</li>
-        <li class="mdl-menu__item">default2</li>
+        <li class="mdl-menu__item" data-id="12" onclick="loadSellerCard()">Name</li>    
+        @*@foreach (var item in Model.OrganizationList)
+        {
+            <li class="mdl-menu__item" data-id="@item.Id">@item.Name</li>    
+        }*@
     </ul>
 </div>
+
+@*<script>
+    $("#newDocForm #")
+    MaterialTextfield()
+</script>*@

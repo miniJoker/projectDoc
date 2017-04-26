@@ -11,7 +11,7 @@ namespace projectD.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [UIHint("Inn")]
-        public int Inn { get; set; }
+        public string Inn { get; set; }
         public Address Address { get; set; }
     }
 }

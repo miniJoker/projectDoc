@@ -19,10 +19,8 @@ namespace projectD.Controllers
         public ActionResult New()
         {
             ViewBag.Title = "Новый документ";
-
-            List<Organization> orgList = GenerateOrgs();
-
             Invoice invoice = new Invoice();
+            var list = GenerateOrgs();
             return View(invoice);
         }
 
