@@ -31,3 +31,25 @@ function showMessage(text, status) {
     };
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
 }
+
+/*
+* Ajax настройки
+*/
+
+$(document).ajaxSend(function () {
+    $("div.loader").css("display", "block");
+});
+$(document).ajaxComplete(function () {
+    componentHandler.upgradeAllRegistered();
+    setTimeout(function () {
+        $("div.loader").css("display", "none");
+    }, 300);
+});
+
+$(document).ajaxError(function () {
+    setTimeout(function () {
+        $("div.loader").css("display", "none");
+        showMessage("Ошибка", "Error")
+    }, 300);
+    
+});

@@ -1,4 +1,5 @@
-﻿using projectD.Models;
+﻿using projectD.DataAccess;
+using projectD.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -15,36 +16,42 @@ namespace projectD.Controllers
         {
 
             Invoice invoice = new Invoice();
-            if (Id.HasValue)
+            TempDataProvider dataProvider = new TempDataProvider();
+            var temp = dataProvider.GenerateOrgs();
+            ViewBag.OrgList = temp.Select(x => new KeyValuePair<int,string>(x.Id,x.Name)).ToList();
+            if (Id > 0)
             {
-                Organization org1 = new Organization()
-                {
-                    Name = "Booster",
-                    Address = new Address()
-                    {
-                        Area = "DefaultArea",
-                        City = "DefaultCity",
-                        Detail = "DefaultDetail"
-                    },
-                    PaymentDetails = new PaymentDetails()
-                    {
-                        Account = "123",
-                        BankName = "DefaultBank",
-                        BIK = "123",
-                        INN = "123",
-                        KorAccount = "123",
-                        KPP = "123"
-                    }
-                };
-                invoice.Organization = org1;
+                invoice.Organization = temp.Where(x => x.Id == Id).Single();
             }
             return PartialView(invoice);
         }
 
         public PartialViewResult Buyer(int? Id)
         {
-            return PartialView(new Invoice());
+            Buyer buyer = new Buyer();
+            TempDataProvider dataProvider = new TempDataProvider();
+            var temp = dataProvider.GenerateBuyers();
+            ViewBag.BuyerList = temp.Select(x => new KeyValuePair<int, string>(x.Id, x.Name)).ToList();
+            if (Id > 0)
+            {
+                buyer = temp.Where(x => x.Id == Id).Single();
+            }
+            return PartialView(buyer);
         }
+
+        public PartialViewResult Item(int? Id)
+        {
+            Item item = new Item();
+            TempDataProvider dataProvider = new TempDataProvider();
+            var temp = dataProvider.GenerateItems();
+            ViewBag.ItemList = temp.Select(x => new KeyValuePair<int, string>(x.Id, x.Name)).ToList();
+            if (Id > 0)
+            {
+                item = temp.Where(x => x.Id == Id).Single();
+            }
+            return PartialView("~/Views/Card/NewItem.cshtml",item);
+        }
+
 
         public PartialViewResult AddItem(string name, string type, string count, string price)
         {

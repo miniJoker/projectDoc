@@ -1,16 +1,16 @@
-﻿@model projectD.Models.Invoice
+﻿@model projectD.Models.Buyer
 @*Блок "Данные покупателя"*@
 <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Данные покупателя</h2>
 </div>
 <div class="mdl-card__supporting-text">
     <div>
-        @Html.EditorFor(x => x.Buyer.Name, new { fieldTitle = "Покупатель" })
-        @Html.EditorFor(x => x.Buyer.Inn, new { fieldTitle = "ИНН" })
+        @Html.EditorFor(x => x.Name, new { fieldTitle = "Покупатель" })
+        @Html.EditorFor(x => x.Inn, new { fieldTitle = "ИНН" })
     </div>
     <div>
         <h4 class="mdl-typography--body-1">Адрес</h4>
-        @Html.EditorFor(x => x.Buyer.Address)
+        @Html.EditorFor(x => x.Address)
     </div>
     
 </div>
@@ -19,7 +19,9 @@
         <i class="material-icons">create</i>
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="cardMenuBuyer">
-        <li class="mdl-menu__item">default1</li>
-        <li class="mdl-menu__item">default2</li>
+        @foreach (var item in ViewBag.BuyerList)
+        {
+            <li class="mdl-menu__item" data-id="@item.Key">@item.Value</li>
+        }
     </ul>
 </div>

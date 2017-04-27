@@ -1,4 +1,4 @@
-﻿@model projectD.Models.Invoice
+﻿@model projectD.Models.Item
 @*Блок "Товар, услуга"*@
 <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Товар, услуга</h2>
@@ -8,16 +8,24 @@
         <i class="material-icons">create</i>
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="cardMenuItem">
-        <li class="mdl-menu__item">item1</li>
-        <li class="mdl-menu__item">item2</li>
+        @*<li class="mdl-menu__item">item1</li>
+        <li class="mdl-menu__item">item2</li>*@
+        @foreach (var item in ViewBag.ItemList)
+        {
+            <li class="mdl-menu__item" data-id="@item.Key">@item.Value</li>
+        }
     </ul>
 </div>
 <div class="mdl-card__supporting-text">
     <div>
-        @Html.Editor("Name", "String", new { fieldTitle = "Наименование" })
+        @Html.EditorFor(x => x.Name, new { fieldTitle = "Наименование" })
+        @Html.EditorFor(x => x.Type, new { fieldTitle = "Ед. измерения" })
+        @Html.EditorFor(x => x.Count, new { fieldTitle = "Количество" })
+        @Html.EditorFor(x => x.Price, new { fieldTitle = "Цена" })
+        @*@Html.Editor("Name", "String", new { fieldTitle = "Наименование" })
         @Html.Editor("Type", "String", new { fieldTitle = "Ед. измерения" })
         @Html.Editor("Count", "Double", new { fieldTitle = "Количество" })
-        @Html.Editor("Price", "Double", new { fieldTitle = "Цена" })
+        @Html.Editor("Price", "Double", new { fieldTitle = "Цена" })*@
     </div>
 </div>
 <div class="mdl-card__actions">

@@ -3,12 +3,6 @@
     string sellerUrl = Url.Action("Seller", "Card");
     string buyerUrl = Url.Action("Buyer", "Card");
 }
-@*<script type="text/javascript">
-    $(document).ready(function () {
-        $("#sellerCard").load("/Card/Seller")
-        $("#buyerCard").load("/Card/Buyer?Id=0")
-    })
-</script>*@
 <style>
     .mdl-card.card-item {
         width:100%;
@@ -42,15 +36,15 @@
         <div class="mdl-grid">
             @*Карточка с данными продавца*@
             <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--11-col mdl-grid" id="sellerCard">
-                @Html.Partial("~/Views/Card/Seller.cshtml")
+                @*@Html.Partial("~/Views/Card/Seller.cshtml")*@
             </div>
             @*Карточка с данными покупателя*@
             <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet" id="buyerCard">
-                @Html.Partial("~/Views/Card/Buyer.cshtml")
+                @*@Html.Partial("~/Views/Card/Buyer.cshtml")*@
             </div>
             @*Добавление товара*@
             <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet" id="itemCard">
-                @Html.Partial("~/Views/Card/NewItem.cshtml")
+                @*@Html.Partial("~/Views/Card/NewItem.cshtml")*@
             </div>
             <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--8-col-tablet" style="padding:0px">
                 @*Список товаров*@

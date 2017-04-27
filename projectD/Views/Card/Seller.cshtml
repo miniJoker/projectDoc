@@ -34,35 +34,6 @@
         @Html.EditorFor(x => x.Organization.PaymentDetails.KorAccount, new { fieldTitle = "Кор. счет" })
         @Html.EditorFor(x => x.Organization.PaymentDetails.BIK, new { fieldTitle = "БИК банка" })
         @Html.EditorFor(x => x.Organization.PaymentDetails.BankName, new { fieldTitle = "Название банка" })
-        @*<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-            <label class="mdl-textfield__label" for="sample4">ИНН</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-            <label class="mdl-textfield__label" for="sample4">КПП (для ООО)</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-            <label class="mdl-textfield__label" for="sample4">Счет</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-            <label class="mdl-textfield__label" for="sample4">Кор. счет</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-            <label class="mdl-textfield__label" for="sample4">БИК банка</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="sample3">
-            <label class="mdl-textfield__label" for="sample3">Название банка</label>
-        </div>*@
     </div>
 </div>
 @*Кнопка с выпадающим меню*@
@@ -72,11 +43,11 @@
         <i class="material-icons">create</i>
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="cardMenuSeller">
-        <li class="mdl-menu__item" data-id="12" onclick="loadSellerCard()">Name</li>    
-        @*@foreach (var item in Model.OrganizationList)
+        @*<li class="mdl-menu__item" data-id="12" onclick="loadSellerCard()">Name</li>*@    
+        @foreach (var item in ViewBag.OrgList)
         {
-            <li class="mdl-menu__item" data-id="@item.Id">@item.Name</li>    
-        }*@
+            <li class="mdl-menu__item" data-id="@item.Key">@item.Value</li>    
+        }
     </ul>
 </div>
 
