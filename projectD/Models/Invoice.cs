@@ -20,5 +20,6 @@ namespace projectD.Models
         [UIHint("Number")]
         public int? Number { get; set; }
         public DateTime Date { get; set; }
+        public List<Item> Items { get; set; }
     }
 }

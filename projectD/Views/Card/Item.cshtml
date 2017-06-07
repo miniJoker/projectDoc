@@ -1,5 +1,11 @@
 ﻿@model projectD.Models.Item
 <div class="mdl-card card-item mdl-color--primary mdl-color-text--primary-contrast">
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.Count)
+    @Html.HiddenFor(x => x.Name)
+    @Html.HiddenFor(x => x.Price)
+    @Html.HiddenFor(x => x.Type)
+
     <div class="flex-container">
         <div>
             <label>@Model.Name</label>

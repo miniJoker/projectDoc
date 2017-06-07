@@ -17,7 +17,7 @@ namespace projectD.Controllers
 
             Invoice invoice = new Invoice();
             TempDataProvider dataProvider = new TempDataProvider();
-            var temp = dataProvider.GenerateOrgs();
+            var temp = dataProvider.GetOrgs();
             ViewBag.OrgList = temp.Select(x => new KeyValuePair<int,string>(x.Id,x.Name)).ToList();
             if (Id > 0)
             {
@@ -30,7 +30,7 @@ namespace projectD.Controllers
         {
             Buyer buyer = new Buyer();
             TempDataProvider dataProvider = new TempDataProvider();
-            var temp = dataProvider.GenerateBuyers();
+            var temp = dataProvider.GetBuyers();
             ViewBag.BuyerList = temp.Select(x => new KeyValuePair<int, string>(x.Id, x.Name)).ToList();
             if (Id > 0)
             {
@@ -43,7 +43,7 @@ namespace projectD.Controllers
         {
             Item item = new Item();
             TempDataProvider dataProvider = new TempDataProvider();
-            var temp = dataProvider.GenerateItems();
+            var temp = dataProvider.GetItems();
             ViewBag.ItemList = temp.Select(x => new KeyValuePair<int, string>(x.Id, x.Name)).ToList();
             if (Id > 0)
             {

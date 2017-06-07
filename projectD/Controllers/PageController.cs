@@ -1,4 +1,5 @@
-﻿using projectD.Models;
+﻿using projectD.DataAccess;
+using projectD.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,9 @@ namespace projectD.Controllers
         public ActionResult List()
         {
             ViewBag.Title = "Список документов";
-            return View();
+            TempDataProvider dataProvider = new TempDataProvider();
+            List<Invoice> model = dataProvider.GetInvoices();
+            return View(model);
         }
 
         public ActionResult Archive()
