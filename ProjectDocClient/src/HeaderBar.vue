@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'header',
+  name: 'header-bar',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

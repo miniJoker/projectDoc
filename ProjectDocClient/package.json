@@ -11,7 +11,8 @@
   "dependencies": {
     "@material/ripple": "^0.37.0",
     "material-design-icons": "^3.0.1",
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "vue-router": "^3.0.1"
   },
   "browserslist": [
     "> 1%",
