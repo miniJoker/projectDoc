@@ -11,10 +11,12 @@
 
 <script>
   export default {
-    name: 'Auth',
+    name: 'AuthPage',
+    props: {
+      mode: String
+    },
     methods : {
       logIn : function(){
-        //this.$parent.onLogIn(true);
         var date = new Date(new Date().getTime() + 60 * 1000);
         document.cookie = "isLogOn=true; path=/; expires=" + date.toUTCString();
         this.$router.push({ path: '/' });
