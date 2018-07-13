@@ -2,9 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
 import HeaderBar from './HeaderBar.vue';
-import Auth from './Auth.vue';
-import New from './New.vue';
-import Home from './Home.vue';
+import AuthPage from './AuthPage.vue';
+import NewPage from './NewPage.vue';
+import HomePage from './HomePage.vue';
 
 import Utils from './js/utils.js';
 import {MDCRipple} from '@material/ripple';
@@ -14,10 +14,10 @@ Vue.use(VueRouter);
 function checkAuth(){
 	return Utils.getCookie('isLogOn');
 }
-const NotFound = { template: '<h2>Page Noasdat Found</h2>' }
+const NotFound = { template: '<h2>This page doesn\'t exist</h2>' }
 const routes = [
 	{ 
-	  	path: '/', component: Home, 
+	  	path: '/', component: HomePage, 
 	  	beforeEnter: (to, from, next) => {
 	  		if (checkAuth()) {
 	  			next();
@@ -26,18 +26,8 @@ const routes = [
 	  		}
 	  	}
   	},
-	{ 
-	  	path: '/auth', component: Auth,
-	  	beforeEnter: (to, from, next) => {
-	  		if (checkAuth()) {
-	  			next({ path: '/home' })
-	  		} else {
-	  			next()
-	  		}
-	  	}
-	},
   	{ 
-	  	path: '/new', component: New,
+	  	path: '/new', component: NewPage, 
 	  	beforeEnter: (to, from, next) => {
 	    	if (checkAuth()) {
 	  			next();
@@ -45,6 +35,28 @@ const routes = [
 	  			next({ path: '/auth' })
 	  		}
 	  	},
+	},
+	{ 
+	  	path: '/auth', component: AuthPage,
+	  	children: [
+	  		{
+	  			path: '', component: AuthPage,
+	  			beforeEnter: (to, from, next) => {
+			  		if (checkAuth()) {
+			  			next({ path: '/' })
+			  		} else {
+			  			next()
+			  		}
+			  	}
+	  		},
+	  		{
+	  			path: 'out', component: AuthPage,
+	  			beforeEnter: (to, from, next) => {
+	  				Utils.deleteCookie('isLogOn');
+			  		next({ path: '/auth' });
+			  	}	
+	  		}
+	  	],
 	},
   	{ path: '*', component: NotFound }
 ];
