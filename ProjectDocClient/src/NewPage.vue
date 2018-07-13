@@ -10,6 +10,6 @@
 
 <script>
   export default {
-    name: 'New'
+    name: 'NewPage'
   }
 </script>
